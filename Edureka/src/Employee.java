@@ -1,4 +1,4 @@
-class Employee 
+class Employee
 {
 	/* member datas | properties | methods */
 	int empno;
@@ -8,11 +8,17 @@ class Employee
 	void setDetails(){
 		empno =102;
 		name="Rahul";
-		sal = 5000.25f;
+		sal = 5000.25f;		
 	}
 
 	void displayDetails(){
 		System.out.println(empno + " | "+name+" | "+sal);
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Employee [" + empno + " | " + name + " | " + sal + "]";
 	}
 
 	public static void main(String[] args) 
@@ -33,5 +39,7 @@ class Employee
 		/*-- to change the state of an object using method --*/
 		emp.setDetails();
 		emp.displayDetails();
+		
+		System.out.println(emp); //calls toString()
 	}
 }

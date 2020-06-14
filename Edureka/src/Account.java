@@ -1,5 +1,7 @@
 public class Account {
- long acno;  String name;  float bal;
+ long acno;  
+ String name;  
+ float bal;
  
  Account(){}
 
