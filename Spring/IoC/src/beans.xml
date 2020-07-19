@@ -3,7 +3,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="stud1" class="co.edureka.Student">
+	<bean id="stud1" class="co.edureka.Student" lazy-init="true" scope="prototype">
 		<property name="name" value="Sunil"></property>
 	</bean>
 	
