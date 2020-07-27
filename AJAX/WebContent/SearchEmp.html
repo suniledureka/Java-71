@@ -1,0 +1,75 @@
+<html>
+<head>  
+<style>  
+table tr th
+{
+ background-color:#cccccc;
+ font-family: Verdana;
+ font-size:26px;
+}
+table tr td,input
+{
+ font-size:20px;   
+}
+table tr
+{
+ height:40px;   
+}
+</style>
+<!--  Java Script section -->
+<script>
+ let xhr;
+ function details(empno)
+ {
+   xhr = new XMLHttpRequest();
+   
+   xhr.open("GET","search?eno="+empno, true);
+   
+   xhr.onreadystatechange = fun;
+   
+   xhr.send();
+ }
+ 
+ function fun(){
+	 //alert(xhr.readyState)
+	 if(xhr.readyState==4){
+		let name = 'NO MATCH';
+		let sal = '';
+		
+		let response = xhr.responseText;
+		
+		if(response.length>0){
+			response = JSON.parse(response);
+			name = response.name;
+			sal = response.sal;
+		}
+		document.getElementById('name').innerText = name;
+		document.getElementById('sal').innerText = sal;
+	 }
+ }
+</script>
+
+</head>    
+
+<body>
+<table align="center" width="50%" border="1" cellpadding="5px">
+<tr>
+ <th colspan="2">EDUREKA | MIS | SEARCH </th>        
+</tr>    
+<tr>
+ <td width="30%">EMP NO</td>        
+ <td>
+  <input type=text name="eno" size=30 onblur="details(this.value)" autofocus>
+ </td> 
+</tr>     
+<tr>
+ <td>NAME</td>        
+ <td><span id="name"/></td> 
+</tr>    
+<tr>
+ <td>SALARY</td>        
+ <td><span id="sal"/></td> 
+</tr>     
+</table>    
+</body>
+</html>
